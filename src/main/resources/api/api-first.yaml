@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  description: |
+    Simple API first driven endpoints
+  version: "1.0.0"
+  title: "API first"
+tags:
+  - name: "Get Users"
+    description: "Display all users."
+
+servers:
+  - url: localhost:8080
+paths:
+  /users:
+    get:
+      tags:
+        - "Get Users"
+      summary: "Display all the users of the Library"
+      operationId: "getAllUsers"
+
+      responses:
+        200:
+          description: "All good"
+        400:
+          description: "Bad request"
+        500:
+          description: "Internal error"
+components:
+  responses:
+    
