@@ -20,11 +20,18 @@ paths:
 
       responses:
         200:
-          description: "All good"
+          $ref: '#/components/responses/Accepted'
         400:
-          description: "Bad request"
+          $ref: '#/components/responses/BadRequest'
         500:
-          description: "Internal error"
+          $ref: '#/components/responses/InternalError'
 components:
   responses:
-    
+    Accepted:
+      description: "Request successfully processed."
+
+    BadRequest:
+      description: "Cannot process request."
+
+    InternalError:
+      description: "Internal error occured."
