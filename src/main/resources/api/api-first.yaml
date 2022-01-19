@@ -26,12 +26,24 @@ paths:
         500:
           $ref: '#/components/responses/InternalError'
 components:
+  schemas:
+    Api-Response:
+      type: object
+      description: "Response object"
+      properties:
+        status:
+          type: string
+          example: 200
+        title:
+          type: string
+          example: "Access granted"
+
   responses:
     Accepted:
-      description: "Request successfully processed."
+      $ref: '#/components/schemas/Api-Response'
 
     BadRequest:
-      description: "Cannot process request."
+      $ref: '#/components/schemas/Api-Response'
 
     InternalError:
-      description: "Internal error occured."
+      $ref: '#/components/schemas/Api-Response'

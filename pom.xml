@@ -82,8 +82,8 @@
                             <language>spring</language>
                             <output>${project.build.directory}/generated-sources/</output>
                             <generateSupportingFiles>false</generateSupportingFiles>
-                            <apiPackage>com.lslao.libraryservice.api</apiPackage>
-                            <modelPackage>com.lslao.libraryservice.models</modelPackage>
+                            <apiPackage>com.lslao.af.api</apiPackage>
+                            <modelPackage>com.lslao.af.models</modelPackage>
                             <configOptions>
                                 <interfaceOnly>true</interfaceOnly>
                             </configOptions>
