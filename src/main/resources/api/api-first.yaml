@@ -9,7 +9,7 @@ tags:
     description: "Display all users."
 
 servers:
-  - url: localhost:8080
+  - url: lslaoang/user/library
 paths:
   /users:
     get:
@@ -17,7 +17,6 @@ paths:
         - "Get Users"
       summary: "Display all the users of the Library"
       operationId: "getAllUsers"
-
       responses:
         200:
           $ref: '#/components/responses/Accepted'
@@ -27,23 +26,37 @@ paths:
           $ref: '#/components/responses/InternalError'
 components:
   schemas:
-    Api-Response:
+    responseSchema:
       type: object
       description: "Response object"
       properties:
         status:
           type: string
           example: 200
+          default: "200"
         title:
           type: string
           example: "Access granted"
+          default: "Access granted"
 
   responses:
     Accepted:
-      $ref: '#/components/schemas/Api-Response'
+      description: "Process accepted."
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/responseSchema'
 
     BadRequest:
-      $ref: '#/components/schemas/Api-Response'
+      description: "Bad request detected."
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/responseSchema'
 
     InternalError:
-      $ref: '#/components/schemas/Api-Response'
+      description: "Server error occurred."
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/responseSchema'
