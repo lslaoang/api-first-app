@@ -5,7 +5,6 @@ package com.lao.apifirstapp.controller;
 import com.lao.apifirstapp.model.Response;
 import com.lslao.af.api.UsersApi;
 import com.lslao.af.models.ResponseSchema;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,8 +17,11 @@ import java.util.Enumeration;
 @RestController
 public class UserController implements UsersApi {
 
-    @Autowired
-    private HttpServletRequest request;
+    private final HttpServletRequest request;
+
+    public UserController(HttpServletRequest request) {
+        this.request = request;
+    }
 
     @Override
     public ResponseEntity<ResponseSchema> getAllUsers() {
