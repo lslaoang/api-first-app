@@ -24,6 +24,28 @@ paths:
           $ref: '#/components/responses/BadRequest'
         500:
           $ref: '#/components/responses/InternalError'
+
+  /add/file:
+    post:
+      tags:
+        - "Add File"
+      summary: "Add new file"
+      operationId: "addFile"
+      requestBody:
+        description: "Base64 encoded file."
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadedFile'
+
+      responses:
+        200:
+          $ref: '#/components/responses/Accepted'
+        400:
+          $ref: '#/components/responses/BadRequest'
+        500:
+          $ref: '#/components/responses/InternalError'
+
 components:
   schemas:
     responseSchema:
@@ -38,6 +60,16 @@ components:
           type: string
           example: "Access granted"
           default: "Access granted"
+    UploadedFile:
+      type: object
+      description: "Base64 encoded file as String."
+      properties:
+        FileAsString:
+          type: string
+          format: base64
+          example: "base64EncodedString"
+      required:
+        - FileAsString
 
   responses:
     Accepted:
