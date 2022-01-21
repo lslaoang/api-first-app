@@ -18,6 +18,9 @@ public class UserInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
+        // Handling the HttpServlet before processing its payload.
+
         LOGGER.info("Pre Handle Request");
         String auth =  request.getAuthType();
         Enumeration<String> authHeaders = request.getHeaderNames();
@@ -26,11 +29,7 @@ public class UserInterceptor implements HandlerInterceptor {
            if(Objects.equals(authHeaders.nextElement(), "authorization")){
                System.out.println(authHeaders.nextElement() + " auth");
            }
-            //System.out.println(authHeaders.nextElement());
         }
-
-        System.out.println(auth);
-
         return HandlerInterceptor.super.preHandle(request, response, handler);
 
     }
