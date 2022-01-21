@@ -44,7 +44,7 @@ public class UserInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        LOGGER.info("Post Handle Request");
+        LOGGER.info("Handle the request after completion.");
         HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
     }
 }
