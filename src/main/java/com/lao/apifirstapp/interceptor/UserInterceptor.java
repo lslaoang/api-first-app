@@ -7,8 +7,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.Objects;
 
@@ -20,7 +18,6 @@ public class UserInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         // Handling the HttpServlet before processing its payload.
-
         LOGGER.info("Pre Handle Request");
         String auth =  request.getAuthType();
         Enumeration<String> authHeaders = request.getHeaderNames();
