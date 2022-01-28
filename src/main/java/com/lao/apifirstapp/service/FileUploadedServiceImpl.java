@@ -1,5 +1,6 @@
 package com.lao.apifirstapp.service;
 
+import com.lao.apifirstapp.model.upload.UploadRequest;
 import com.lslao.af.models.UploadedFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +32,11 @@ public class FileUploadedServiceImpl implements FileUploadedService {
             LOGGER.error("File is not Base64 encoded. {}", e.getMessage());
             return false;
         }
+    }
+
+    @Override
+    public void sendToEndpoint(UploadRequest uploadRequest) {
+        // TODO: Create implementation of file uploading
     }
 
     public boolean isValidPdfFile(byte[] base64Encoded) {
