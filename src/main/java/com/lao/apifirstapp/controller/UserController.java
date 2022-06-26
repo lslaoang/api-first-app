@@ -23,7 +23,7 @@ public class UserController implements UsersApi {
     @Override
     public ResponseEntity<ResponseSchema> getAllUsers() {
         Response response = new Response();
-        response.status("200");
+        response.status(200);
         response.setTitle("Request Accepted.");
 
         Enumeration headers = request.getHeaderNames();
